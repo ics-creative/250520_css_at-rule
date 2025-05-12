@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>@scope アットルール - HTML内で使う場合</title>
+  <link href="../base.css" rel="stylesheet" type="text/css"/>
+  <style>
+    .container {
+      display: grid;
+      gap: 20px;
+    }
+    .section + .section {
+      padding-top: 20px;
+      border-top: 2px dotted #2f2e2e;
+    }
+  </style>
+</head>
+
+<body>
+<div class="container">
+  <div class="section">
+    <style>
+      @scope {
+        p {
+          color: green;
+        }
+      }
+    </style>
+    <p>適用されます</p>
+    <div>適用されません</div>
+
+    <div>
+      <p>適用されます</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <p>適用されません</p>
+  </div>
+</div>
+
+</body>
+</html>

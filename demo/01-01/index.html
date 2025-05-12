@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>@scope アットルール - CSSの中で独立したブロックとして使う場合</title>
+  <link href="../base.css" rel="stylesheet" type="text/css"/>
+  <style>
+    @scope (.section_footer) to (.section_footer_textarea_inner) {
+      p {
+        color: green;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<div class="section">
+  <p>適用されません</p>
+
+  <div class="section_footer">
+    <p>適用されます</p>
+
+    <div class="section_footer_textarea">
+      <p>適用されます</p>
+
+      <div class="section_footer_textarea_inner">
+        <p>適用されません</p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

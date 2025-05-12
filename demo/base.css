@@ -1,0 +1,23 @@
+/* A Modern CSS Reset */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body, div, h1, h2, p {
+  margin: 0
+}
+
+body {
+  padding-top: 50px;
+  padding-right: 50px;
+  padding-left: 50px;
+  font-family: "Zen Maru Gothic", serif;
+  font-size: 20px;
+  background-color: #ffffff;
+}
+
+p {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
