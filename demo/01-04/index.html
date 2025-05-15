@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>@scope アットルール - CSSの中で独立したブロックとして使う場合</title>
+  <title>@scope アットルール - :scope疑似クラスとの違い</title>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
   <link href="../base.css" rel="stylesheet" type="text/css"/>
   <style>
-    @scope (.section_footer) to (.section_footer_textarea_inner) {
+    @scope (.section) to (.section_footer) {
+      :scope {
+        color: blue;
+      }
       p {
         color: green;
       }
@@ -17,19 +20,15 @@
 
 <body>
 <div class="section">
-  <p>適用されません</p>
+  <p>文字色は『緑』です</p>
+  <div>文字色は『青』です</div>
 
   <div class="section_footer">
-    <p>適用されます</p>
-
-    <div class="section_footer_textarea">
-      <p>適用されます</p>
-
-      <div class="section_footer_textarea_inner">
-        <p>適用されません</p>
-      </div>
-    </div>
+    <p>文字色は『青』です</p>
+    <div>文字色は『青』です</div>
   </div>
+
+  <p>文字色は『緑』です</p>
 </div>
 </body>
 </html>
