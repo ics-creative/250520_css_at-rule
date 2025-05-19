@@ -3,15 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>@scopeアットルールと:scope疑似クラスの違い ： @scope アットルール</title>
+  <title>@scopeアットルールと:scope疑似クラスを組み合わせて使用する ： @scope アットルール</title>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
   <link href="../base.css" rel="stylesheet" type="text/css"/>
   <style>
-    @scope (.section) to (.section_footer) {
+    @scope (.section) {
       :scope {
         color: blue;
       }
+
+      :scope > p {
+        /* ▼ スコープルート（.section）直下の<p>のみオレンジ */
+        color: orange;
+      }
+
       p {
+        /* ▼ スコープルート（.section）内のすべての<p>を緑に */
+        /* ▼ しかし上の「:scope > p {}」のほうが詳細度が高いので、スタイルが上書きされる */
         color: green;
       }
     }
@@ -19,17 +27,15 @@
 </head>
 
 <body>
-<h2>@scopeアットルールと:scope疑似クラスの違い</h2>
+<h2>@scopeアットルールと:scope疑似クラスを組み合わせて使用する</h2>
 <div class="section">
-  <p>文字色は『緑』です</p>
+  <p>文字色は『オレンジ』です</p>
   <div>文字色は『青』です</div>
 
-  <div class="section_footer">
-    <p>文字色は『青』です</p>
+  <div>
+    <p>文字色は『緑』です</p>
     <div>文字色は『青』です</div>
   </div>
-
-  <p>文字色は『緑』です</p>
 </div>
 </body>
 </html>
